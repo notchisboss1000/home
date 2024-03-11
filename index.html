@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notchisboss Home Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notchisboss's Home</title>
+  <style>
+    body {
+      background-color: black;
+      color: green;
+      font-family: 'Courier New', monospace;
+      overflow: hidden; /* Hide scroll bars */
+    }
+  </style>
 </head>
-            <nav>
-            <ul>
-                <li><a href="https://notchisboss1000.github.io/homepage/">Homepage</a></li>
-                <li><a href="https://notchisboss1000.github.io/games-page">Games</a></li>
-                <li><a href="https://notchisboss1000.github.io/projects">Projects</a></li>
-                <li><a href="https://notchisboss1000.github.io/discord">Discord</a></li>
-                <li><a href="https://notchisboss1000.github.io/contact">Contact</a></li>
-            </ul>
-        </nav>
 <body>
-    <div class="typewriter">
-        <pre>// Hey! I'm Notchisboss (or Cursed Pixel)!
-This is just a simple little home page with some links.</pre>
-    </div>
+  <script>
+    // Text to be displayed
+    const text = "// Hey! I'm Notchisboss (or Cursed Pixel)!\nThis is just a simple little home page with some links.";
 
-    <script src="script.js"></script>
+    // Speed of typing (adjust as needed)
+    const typingSpeed = 50; // in milliseconds
+
+    // Function to type text in real-time
+    function typeText() {
+      let index = 0;
+      const outputElement = document.body;
+
+      function typeCharacter() {
+        outputElement.innerHTML += text[index++];
+        if (index < text.length) {
+          setTimeout(typeCharacter, typingSpeed);
+        }
+      }
+
+      typeCharacter();
+    }
+
+    // Call the function when the page loads
+    window.onload = typeText;
+  </script>
 </body>
 </html>
