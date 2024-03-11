@@ -12,6 +12,7 @@
       overflow: hidden;
     }
     button {
+      display: none; /* Hide the button initially */
       background-color: limegreen;
       color: black;
       padding: 10px 20px;
@@ -38,6 +39,9 @@
         outputElement.innerHTML += text[index++];
         if (index < text.length) {
           setTimeout(typeCharacter, typingSpeed);
+        } else {
+          // Typing finished, show the button
+          document.getElementById('exploreButton').style.display = 'inline';
         }
       }
 
@@ -55,6 +59,6 @@
   </script>
 
   <!-- Button to link to the game-links page -->
-  <button onclick="window.location.href='https://notchisboss1000.github.io/game-links/'">Explore My Games</button>
+  <button id="exploreButton" onclick="window.location.href='https://notchisboss1000.github.io/game-links/'">Explore My Games</button>
 </body>
 </html>
