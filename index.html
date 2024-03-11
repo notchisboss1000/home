@@ -10,14 +10,16 @@
       color: limegreen;
       font-family: 'Courier New', monospace;
       overflow: hidden;
-      margin-bottom: 60px; /* Increase the margin to make room for the button */
+    }
+    #contentContainer {
+      position: relative;
     }
     button {
-      display: none; /* Hide the button initially */
-      position: fixed; /* Fixed position to be below the body */
-      bottom: 20px;
+      display: none;
+      position: absolute;
+      bottom: 0;
       left: 50%;
-      transform: translateX(-50%); /* Center the button horizontally */
+      transform: translateX(-50%);
       background-color: limegreen;
       color: black;
       padding: 10px 20px;
@@ -27,43 +29,44 @@
   </style>
 </head>
 <body>
-  <script>
-    // Text to be displayed
-    const text = "// Hey! I'm Notchisboss (or Cursed Pixel)!\nThis is just a simple little home page with some links.";
+  <div id="contentContainer">
+    <script>
+      // Text to be displayed
+      const text = "// Hey! I'm Notchisboss (or Cursed Pixel)!\nThis is just a simple little home page with some links.";
 
-    // Speed of typing (adjust as needed)
-    let typingSpeed = 50; // in milliseconds
+      // Speed of typing (adjust as needed)
+      let typingSpeed = 50; // in milliseconds
 
-    // Function to type text in real-time
-    function typeText() {
-      let index = 0;
-      const outputElement = document.body;
+      // Function to type text in real-time
+      function typeText() {
+        let index = 0;
+        const outputElement = document.body;
 
-      function typeCharacter() {
-        outputElement.innerHTML += text[index++];
-        if (index < text.length) {
-          setTimeout(typeCharacter, typingSpeed);
-        } else {
-          // Typing finished, show the button
-          document.getElementById('exploreButton').style.display = 'inline';
+        function typeCharacter() {
+          outputElement.innerHTML += text[index++];
+          if (index < text.length) {
+            setTimeout(typeCharacter, typingSpeed);
+          } else {
+            // Typing finished, show the button
+            document.getElementById('exploreButton').style.display = 'inline';
+          }
         }
+
+        // Call the function to start typing
+        typeCharacter();
+
+        // Stop typing when any key is pressed
+        document.addEventListener('keydown', function() {
+          typingSpeed = 0;
+        });
       }
 
-      // Call the function to start typing
-      typeCharacter();
+      // Call the function when the page loads
+      window.onload = typeText;
+    </script>
+  </div>
 
-      // Stop typing when any key is pressed
-      document.addEventListener('keydown', function() {
-        typingSpeed = 0;
-      });
-    }
-
-    // Call the function when the page loads
-    window.onload = typeText;
-  </script>
+  <!-- Button to link to the game-links page -->
+  <button id="exploreButton" onclick="window.location.href='https://notchisboss1000.github.io/game-links/'">Explore Game Links</button>
 </body>
-
-<!-- Button to link to the game-links page -->
-<button id="exploreButton" onclick="window.location.href='https://notchisboss1000.github.io/game-links/'">Explore My Games</button>
-
 </html>
